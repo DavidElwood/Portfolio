@@ -1,15 +1,15 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
-canvas.width = 448; // 14 columns * 32px
-canvas.height = 608; // 19 rows * 32px (for maze) + 32px for score
+canvas.width = 14 * 48; // 14 columns * 48px
+canvas.height = 19 * 48 + 48; // 19 rows * 48px (for maze) + 48px for score
 
 let score = 0;
 let gameOver = false;
 let gameWon = false;
 let gameInterval;
 
-const boxSize = 32;
+const boxSize = 48;
 
 const initialMaze = [
     [1,1,1,1,1,1,1,1,1,1,1,1,1,1],
@@ -267,7 +267,7 @@ function checkGhostCollision() {
 function checkWinCondition() {
     if (pelletsEaten === totalPellets) {
         gameWon = true;
-        clearInterval(gameInterval);
+        // clearInterval(gameInterval); // Removed: interval should continue running to draw end screen
     }
 }
 
@@ -359,32 +359,33 @@ function resetGame() {
 
 function gameLoop() {
     if (gameOver || gameWon) {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas fully
         ctx.font = '48px Arial';
         ctx.fillStyle = gameOver ? 'red' : 'green';
         const message = gameOver ? 'Game Over!' : 'You Win!';
         ctx.fillText(message, canvas.width / 2 - ctx.measureText(message).width / 2, canvas.height / 2 - 50);
         button.draw();
-        return;
+        clearInterval(gameInterval); // Stop the interval *after* drawing the final screen
+        return; // Stop further execution for this frame
+    } else {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawMaze();
+        pacman.move();
+        pacman.eatPellet();
+        pacman.draw();
+
+        ghosts.forEach(ghost => {
+            ghost.move();
+            ghost.draw();
+        });
+
+        checkGhostCollision();
+        checkWinCondition();
+
+        ctx.font = '24px Arial';
+        ctx.fillStyle = 'white';
+        ctx.fillText('Score: ' + score, 10, canvas.height - 10);
     }
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawMaze();
-    pacman.move();
-    pacman.eatPellet();
-    pacman.draw();
-
-    ghosts.forEach(ghost => {
-        ghost.move();
-        ghost.draw();
-    });
-
-    checkGhostCollision();
-    checkWinCondition();
-
-    ctx.font = '24px Arial';
-    ctx.fillStyle = 'white';
-    ctx.fillText('Score: ' + score, 10, canvas.height - 10);
 }
 
 document.addEventListener('keydown', e => {

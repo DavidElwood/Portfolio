@@ -23,6 +23,65 @@ header h1 {
     letter-spacing: 1px;
 }
 
+.hero {
+    background: linear-gradient(135deg, #3498db, #2c3e50); /* Gradient background */
+    color: #fff;
+    text-align: center;
+    padding: 80px 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px; /* Ensure a decent height */
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: auto;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 5px solid rgba(255,255,255,0.8);
+    margin-bottom: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.hero h2 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: #e74c3c; /* A contrasting accent color */
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.btn-primary:hover {
+    background: #c0392b; /* Darker shade on hover */
+    transform: translateY(-3px);
+}
+
 main {
     padding: 40px 20px;
     max-width: 1100px; /* Slightly wider main content */
@@ -160,4 +219,17 @@ footer {
         padding: 10px 20px;
     }
 }
+
+/* Fade-in Animation Styles */
+section:not(.hero) { /* Apply to all sections except the hero */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
