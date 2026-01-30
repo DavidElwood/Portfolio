@@ -1,0 +1,74 @@
+:root{
+  --bg:#f7fafc;
+  --card:#ffffff;
+  --accent:#4a90e2;
+  --muted:#6b7280;
+  --text:#111111;
+  --header-bg:#ffffff;
+  --border:rgba(10,20,30,0.06);
+  --hero-from:#eef6ff;
+  --hero-to:#f7fbff;
+}
+
+html.dark{
+  --bg:#071026;
+  --card:#0f1724;
+  --accent:#6db9ff;
+  --muted:#9aa4b2;
+  --text:#e6eef6;
+  --header-bg:#071024;
+  --border:rgba(255,255,255,0.06);
+  --hero-from:#042033;
+  --hero-to:#071026;
+}
+*{box-sizing:border-box}
+.body-transition{transition:background-color .22s,color .22s}
+body{font-family:Inter,Segoe UI,Arial,Helvetica,sans-serif;margin:0;background:var(--bg);color:var(--text);transition:background-color .22s,color .22s}
+.container{max-width:1100px;margin:0 auto;padding:1rem}
+.site-header{background:var(--header-bg);border-bottom:1px solid var(--border)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 0}
+.logo{font-size:1.25rem;margin:0;color:var(--accent)}
+.nav{display:flex;gap:0.5rem}
+.cart-btn{background:transparent;border:1px solid var(--accent);color:var(--accent);padding:0.4rem 0.7rem;border-radius:6px;cursor:pointer}
+.theme-btn{background:transparent;border:1px solid var(--border);color:var(--accent);padding:0.35rem 0.6rem;border-radius:8px;cursor:pointer;margin-right:0.6rem}
+
+html.dark .theme-btn{border-color:rgba(255,255,255,0.08)}
+.hero{background:linear-gradient(90deg,var(--hero-from),var(--hero-to));padding:3rem 0;text-align:center;color:var(--text)}
+.hero h2{margin:0 0 0.5rem;font-size:2rem}
+.hero p{margin:0.25rem 0 1rem;color:var(--muted)}
+.btn{background:var(--accent);color:#fff;padding:0.6rem 1rem;border-radius:8px;text-decoration:none;display:inline-block}
+.products-section{padding:2rem 0}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+.card{background:var(--card);border-radius:12px;padding:0.75rem;box-shadow:0 4px 14px rgba(40,60,80,0.06);display:flex;flex-direction:column;align-items:stretch;transition:transform .18s,box-shadow .18s,background-color .18s,color .18s}
+.card img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+.card h4{margin:0.6rem 0 0.25rem;font-size:1.05rem}
+.card p{margin:0;color:var(--muted);font-size:0.95rem}
+.card .card-row{display:flex;justify-content:space-between;align-items:center;margin-top:0.6rem}
+.card .price{font-weight:600}
+.card button{background:var(--accent);color:#fff;border:none;padding:0.4rem 0.6rem;border-radius:8px;cursor:pointer}
+.site-footer{padding:1rem 0;text-align:center;color:var(--muted);font-size:0.9rem}
+
+.cart-panel{position:fixed;right:24px;top:80px;width:320px;background:#fff;border-radius:12px;box-shadow:0 12px 40px rgba(22,44,77,0.18);overflow:hidden;display:flex;flex-direction:column}
+.cart-panel.hidden{display:none}
+.cart-header{padding:0.8rem;border-bottom:1px solid #eef2f6;display:flex;justify-content:space-between;align-items:center}
+.cart-items{list-style:none;margin:0;padding:0.5rem;max-height:360px;overflow:auto}
+.cart-items li{display:flex;gap:0.6rem;padding:0.5rem;border-bottom:1px solid #f3f6f9}
+.cart-items img{width:56px;height:44px;object-fit:cover;border-radius:6px}
+.cart-footer{padding:0.8rem;border-top:1px solid #eef2f6;display:flex;justify-content:space-between;align-items:center}
+.close-cart{background:transparent;border:none;font-size:1rem;cursor:pointer}
+
+@media (max-width:600px){
+  .hero h2{font-size:1.4rem}
+  .cart-panel{left:12px;right:12px;width:auto;top:auto;bottom:12px}
+}
+
+/* Microinteraction styles */
+.toast{position:fixed;bottom:24px;right:24px;background:rgba(17,24,39,0.95);color:#fff;padding:10px 14px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.22);transform:translateY(10px);opacity:0;transition:opacity .22s,transform .22s;z-index:2200}
+.toast.show{opacity:1;transform:translateY(0)}
+
+.fly-img{position:fixed;object-fit:cover;border-radius:8px;pointer-events:none;z-index:2200;will-change:transform,opacity}
+
+/* small pop for cart button */
+.cart-btn.pulse{animation:pop .36s cubic-bezier(.2,.8,.2,1)}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.14)}100%{transform:scale(1)}}
+

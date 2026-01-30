@@ -1,0 +1,8 @@
+[
+  { "id": 1, "name": "Cozy Cat Bed", "price": 29.99, "img": "img/cat.svg", "cat": "cats" },
+  { "id": 2, "name": "Deluxe Toy Set", "price": 14.5, "img": "img/cat.svg", "cat": "cats" },
+  { "id": 3, "name": "Premium Kibble", "price": 39.0, "img": "img/cat.svg", "cat": "cats" },
+  { "id": 4, "name": "Cat Grooming Kit", "price": 19.75, "img": "img/cat.svg", "cat": "cats" },
+  { "id": 5, "name": "Scratching Post", "price": 24.99, "img": "img/cat.svg", "cat": "cats" },
+  { "id": 6, "name": "Travel Carrier", "price": 49.0, "img": "img/cat.svg", "cat": "cats" }
+]

@@ -1,0 +1,81 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.game-container {
+    display: flex;
+    gap: 30px;
+    border: 4px solid #fff;
+    padding: 20px;
+    background-color: #222;
+}
+
+#tetris {
+    border: 4px solid #fff;
+    background-color: #000;
+}
+
+.side-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #f00;
+}
+
+.info-box {
+    border: 4px solid #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.info-box h2 {
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.info-box p {
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+#score {
+    font-size: 1.5rem;
+    color: #ff0;
+}
+
+#next {
+    background-color: #000;
+    border: 2px solid #fff;
+}
+
+#start-button {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.2rem;
+    background-color: #4CAF50;
+    color: white;
+    border: 4px solid #fff;
+    padding: 15px 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+#start-button:hover {
+    background-color: #45a049;
+}
